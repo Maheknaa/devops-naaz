@@ -1,10 +1,24 @@
-# This program adds two numbers
+def calculate_bill(units):
+    if units <= 100:
+        bill = units * 2.60 # 2.60 per unit
+    elif units <= 300:
+        bill = (100 * 2.60) + (units - 100) * 7.20  # $0.75 per unit for 101-300
+    else:
+        bill = (100 * 2.60) + (200 * 7.20) + (units - 300) * 9.0 # $1.20 per unit for above 300
 
-num1 = 1.5
-num2 = 6.3
+    return bill
 
-# Add two numbers
-sum = num1 + num2
+def main():
+    try:
+        units = float(input("Enter the number of electricity units consumed: "))
+        if units < 0:
+            print("Units consumed cannot be negative.")
+            return
+        
+        bill_amount = calculate_bill(units)
+        print(f"Total Electricity Bill: ${bill_amount:.2f}")
+    except ValueError:
+        print("Invalid input. Please enter a numeric value.")
 
-# Display the sum
-print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
+if __name__ == "__main__":
+    main()

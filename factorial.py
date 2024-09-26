@@ -6,6 +6,5 @@ def factorial(n):
         # Recursive case: n! = n * (n-1)!
         return n * factorial(n - 1)
 
-# Example usage:
-number = 5
+number = int(input("Enter a number to calculate its factorial: "))
 print(f"The factorial of {number} is {factorial(number)}")
